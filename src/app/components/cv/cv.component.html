@@ -1,0 +1,60 @@
+<section class="section-layout" id='cv'>
+    <div class="container">
+        <h3>
+            <span class="button-cv button-cv-outline" [ngClass]="{'selected':type_exp==''}" (click)="getExperience('')">  
+                All
+            </span> &nbsp;
+            <span class="button-cv button-cv-outline" [ngClass]="{'selected':type_exp=='Education'}" (click)="getExperience('Education')">  
+                <i class="fas fa-graduation-cap"></i>
+                Education
+            </span> &nbsp;
+            <span class="button-cv button-cv-outline" [ngClass]="{'selected':type_exp=='Career'}" (click)="getExperience('Career')">
+                <i class="fas fa-suitcase"></i>  
+                Career              
+            </span> &nbsp;
+            <span class="button-cv button-cv-outline" [ngClass]="{'selected':type_exp=='Others'}" (click)="getExperience('Others')">
+                <i class="fas fa-icons"></i>
+                Others               
+            </span>
+        </h3>
+    </div>
+    <div class="timeline animated fadeIn fast" *ngFor="let curriculum of cv_selected; let i=index">
+        <!-- <div *ngIf="(type_exp==curriculum.type || type_exp =='')"> -->
+        <div class="container-cv left animated fadeIn fast" *ngIf="(i%2==1)">
+            <div class="content">
+                <h5>
+
+                    {{curriculum.initial_year}} <span *ngIf="curriculum.final_year">- {{curriculum.final_year}}</span> &nbsp;
+                    <i *ngIf="curriculum.type=='Religious'" class="fas fa-praying-hands"></i>
+                    <i *ngIf="curriculum.type=='Education'" class="fas fa-graduation-cap"></i>
+                    <i *ngIf="curriculum.type=='Career'" class="fas fa-suitcase"></i>
+                    <i *ngIf="curriculum.type=='Others'" class="fas fa-icons"></i>
+                    <i *ngIf="curriculum.type=='Award'" class="fas fa-award"></i>
+
+                </h5>
+                <h6>{{curriculum.title}}</h6>
+                <div class="p-cv">
+                    {{curriculum.description}}
+                </div>
+            </div>
+        </div>
+        <div class="container-cv right animated fadeIn fast" *ngIf="(i%2==0)">
+            <div class="content">
+                <h5>
+                    <i *ngIf="curriculum.type=='Education'" class="fas fa-graduation-cap"></i>
+                    <i *ngIf="curriculum.type=='Career'" class="fas fa-suitcase"></i>
+                    <i *ngIf="curriculum.type=='Religious'" class="fas fa-praying-hands"></i>
+                    <i *ngIf="curriculum.type=='Others'" class="fas fa-icons"></i>
+                    <i *ngIf="curriculum.type=='Award'" class="fas fa-award"></i> &nbsp;{{curriculum.initial_year}}
+                    <span *ngIf="curriculum.final_year">- {{curriculum.final_year}}</span>
+                </h5>
+
+                <h6>{{curriculum.title}}</h6>
+                <div class="p-cv">
+                    {{curriculum.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</section>

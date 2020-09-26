@@ -1,0 +1,22 @@
+<section class="section-layout" id='publications'>
+    <div class="container jumbotron animated fadeIn fast" style="background-color: #F3EDF1; padding: 1rem 1rem;">
+        <h1>Publications</h1>
+        <div *ngFor="let publication of publicationList">
+            <br>
+            <div class="row">
+
+                <div class="col-sm-1">
+
+                    <h6>
+                        {{publication.year}}
+                    </h6>
+                </div>
+                <div class="col-sm-11">
+                    <div class="p-publication" style="text-align: justify;" [innerHTML]="publication.description">
+                        <!-- {{publication.description}} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
